@@ -1,0 +1,654 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Automation & AI Workflow Portfolio</title>
+  <style>
+    :root {
+      --navy:  #1B2B4B;
+      --teal:  #0E7F8A;
+      --teal2: #0A6670;
+      --light: #EAF4F5;
+      --white: #FFFFFF;
+      --gray:  #F5F7FA;
+      --text:  #2D2D2D;
+      --muted: #667085;
+      --border: #E0E0E0;
+    }
+
+    * { box-sizing: border-box; margin: 0; padding: 0; }
+
+    body {
+      font-family: 'Segoe UI', Arial, sans-serif;
+      background: var(--gray);
+      color: var(--text);
+      line-height: 1.6;
+    }
+
+    /* ── NAV ── */
+    nav {
+      background: var(--navy);
+      padding: 0 5%;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      height: 60px;
+      position: sticky;
+      top: 0;
+      z-index: 100;
+    }
+    nav .logo {
+      color: var(--white);
+      font-weight: 700;
+      font-size: 1rem;
+      letter-spacing: .05em;
+    }
+    nav .logo span { color: #5DD6DF; }
+    nav ul {
+      list-style: none;
+      display: flex;
+      gap: 28px;
+    }
+    nav ul a {
+      color: #A8D5DA;
+      text-decoration: none;
+      font-size: .85rem;
+      font-weight: 500;
+      transition: color .2s;
+    }
+    nav ul a:hover { color: var(--white); }
+
+    /* ── HERO ── */
+    .hero {
+      background: linear-gradient(135deg, var(--navy) 0%, #0E3A55 60%, var(--teal2) 100%);
+      color: var(--white);
+      text-align: center;
+      padding: 90px 5% 80px;
+      position: relative;
+      overflow: hidden;
+    }
+    .hero::before {
+      content: '';
+      position: absolute;
+      inset: 0;
+      background: url("data:image/svg+xml,%3Csvg width='60' height='60' viewBox='0 0 60 60' xmlns='http://www.w3.org/2000/svg'%3E%3Cg fill='none' fill-rule='evenodd'%3E%3Cg fill='%230E7F8A' fill-opacity='0.08'%3E%3Ccircle cx='30' cy='30' r='2'/%3E%3C/g%3E%3C/g%3E%3C/svg%3E");
+      pointer-events: none;
+    }
+    .hero-badge {
+      display: inline-block;
+      background: rgba(93,214,223,.15);
+      border: 1px solid rgba(93,214,223,.4);
+      color: #5DD6DF;
+      font-size: .78rem;
+      font-weight: 700;
+      letter-spacing: .12em;
+      text-transform: uppercase;
+      padding: 6px 18px;
+      border-radius: 50px;
+      margin-bottom: 22px;
+    }
+    .hero h1 {
+      font-size: clamp(2rem, 5vw, 3.2rem);
+      font-weight: 800;
+      line-height: 1.15;
+      margin-bottom: 18px;
+    }
+    .hero h1 span { color: #5DD6DF; }
+    .hero p {
+      font-size: 1.05rem;
+      color: #A8D5DA;
+      max-width: 580px;
+      margin: 0 auto 36px;
+    }
+    .hero-btns { display: flex; gap: 14px; justify-content: center; flex-wrap: wrap; }
+    .btn {
+      padding: 13px 30px;
+      border-radius: 8px;
+      font-weight: 700;
+      font-size: .93rem;
+      text-decoration: none;
+      transition: transform .15s, box-shadow .15s;
+      cursor: pointer;
+    }
+    .btn:hover { transform: translateY(-2px); box-shadow: 0 6px 20px rgba(0,0,0,.2); }
+    .btn-primary { background: var(--teal); color: var(--white); }
+    .btn-outline { background: transparent; border: 2px solid rgba(255,255,255,.35); color: var(--white); }
+
+    /* ── STATS ── */
+    .stats {
+      display: grid;
+      grid-template-columns: repeat(4, 1fr);
+      background: var(--white);
+      border-bottom: 3px solid var(--teal);
+    }
+    .stat {
+      text-align: center;
+      padding: 28px 10px;
+      border-right: 1px solid var(--border);
+    }
+    .stat:last-child { border-right: none; }
+    .stat-num {
+      font-size: 2rem;
+      font-weight: 800;
+      color: var(--navy);
+      display: block;
+    }
+    .stat-label {
+      font-size: .78rem;
+      color: var(--muted);
+      font-weight: 500;
+    }
+
+    /* ── SECTION WRAPPER ── */
+    section { padding: 70px 5%; max-width: 1100px; margin: 0 auto; }
+    .section-label {
+      font-size: .75rem;
+      font-weight: 700;
+      letter-spacing: .14em;
+      text-transform: uppercase;
+      color: var(--teal);
+      margin-bottom: 10px;
+    }
+    .section-title {
+      font-size: 1.8rem;
+      font-weight: 800;
+      color: var(--navy);
+      margin-bottom: 10px;
+    }
+    .section-sub {
+      color: var(--muted);
+      font-size: .97rem;
+      margin-bottom: 44px;
+    }
+
+    /* ── ABOUT ── */
+    #about { background: var(--white); max-width: 100%; padding: 70px 5%; }
+    .about-inner {
+      max-width: 1100px;
+      margin: 0 auto;
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 60px;
+      align-items: center;
+    }
+    .about-text p { color: var(--text); line-height: 1.8; margin-bottom: 16px; }
+    .about-chips { display: flex; flex-wrap: wrap; gap: 10px; margin-top: 24px; }
+    .chip {
+      background: var(--light);
+      color: var(--teal2);
+      font-size: .8rem;
+      font-weight: 600;
+      padding: 6px 14px;
+      border-radius: 50px;
+      border: 1px solid rgba(14,127,138,.2);
+    }
+    .about-highlights {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 16px;
+    }
+    .highlight-card {
+      background: var(--gray);
+      border-radius: 12px;
+      padding: 22px 18px;
+      border-left: 4px solid var(--teal);
+    }
+    .highlight-card h4 { color: var(--navy); font-size: .93rem; font-weight: 700; margin-bottom: 6px; }
+    .highlight-card p { color: var(--muted); font-size: .83rem; line-height: 1.5; }
+
+    /* ── SERVICES ── */
+    #services { background: var(--gray); max-width: 100%; padding: 70px 5%; }
+    .services-inner { max-width: 1100px; margin: 0 auto; }
+    .services-grid {
+      display: grid;
+      grid-template-columns: repeat(2, 1fr);
+      gap: 20px;
+    }
+    .service-card {
+      background: var(--white);
+      border-radius: 14px;
+      padding: 28px 24px;
+      border: 1px solid var(--border);
+      transition: box-shadow .2s, transform .2s;
+    }
+    .service-card:hover { box-shadow: 0 8px 28px rgba(14,127,138,.12); transform: translateY(-3px); }
+    .service-icon { font-size: 1.8rem; margin-bottom: 14px; }
+    .service-card h3 { color: var(--navy); font-size: 1.05rem; font-weight: 700; margin-bottom: 8px; }
+    .service-card p { color: var(--muted); font-size: .9rem; line-height: 1.6; }
+
+    /* ── PROJECTS ── */
+    #projects { background: var(--white); max-width: 100%; padding: 70px 5%; }
+    .projects-inner { max-width: 1100px; margin: 0 auto; }
+    .project-card {
+      background: var(--white);
+      border: 1px solid var(--border);
+      border-radius: 16px;
+      overflow: hidden;
+      margin-bottom: 36px;
+      box-shadow: 0 2px 12px rgba(0,0,0,.05);
+      transition: box-shadow .2s;
+    }
+    .project-card:hover { box-shadow: 0 8px 32px rgba(14,127,138,.14); }
+    .project-header {
+      background: linear-gradient(90deg, var(--navy), #0E3A55);
+      display: flex;
+      align-items: center;
+      gap: 18px;
+      padding: 22px 28px;
+    }
+    .project-num {
+      background: rgba(93,214,223,.15);
+      border: 2px solid rgba(93,214,223,.4);
+      color: #5DD6DF;
+      font-weight: 800;
+      font-size: 1.1rem;
+      width: 48px; height: 48px;
+      border-radius: 12px;
+      display: flex; align-items: center; justify-content: center;
+      flex-shrink: 0;
+    }
+    .project-title-block h3 { color: var(--white); font-size: 1.15rem; font-weight: 700; }
+    .project-title-block p { color: #8BCCD2; font-size: .85rem; margin-top: 3px; font-style: italic; }
+    .project-body { padding: 28px; display: grid; grid-template-columns: 1fr 1fr; gap: 28px; }
+    .project-col h4 {
+      color: var(--teal2);
+      font-size: .75rem;
+      font-weight: 700;
+      letter-spacing: .1em;
+      text-transform: uppercase;
+      margin-bottom: 10px;
+    }
+    .project-col p { color: var(--text); font-size: .9rem; line-height: 1.7; }
+    .project-tools {
+      padding: 16px 28px 24px;
+      border-top: 1px solid var(--border);
+      display: flex;
+      flex-wrap: wrap;
+      gap: 8px;
+      align-items: center;
+    }
+    .tool-label { font-size: .75rem; color: var(--muted); font-weight: 600; margin-right: 4px; }
+    .tool-chip {
+      background: var(--light);
+      color: var(--teal2);
+      font-size: .75rem;
+      font-weight: 600;
+      padding: 4px 12px;
+      border-radius: 50px;
+      border: 1px solid rgba(14,127,138,.2);
+    }
+
+    /* ── TECH STACK ── */
+    #stack { background: var(--navy); max-width: 100%; padding: 70px 5%; }
+    .stack-inner { max-width: 1100px; margin: 0 auto; }
+    #stack .section-label { color: #5DD6DF; }
+    #stack .section-title { color: var(--white); }
+    #stack .section-sub { color: #8BCCD2; }
+    .stack-grid {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 16px;
+    }
+    .stack-card {
+      background: rgba(255,255,255,.06);
+      border: 1px solid rgba(255,255,255,.1);
+      border-radius: 12px;
+      padding: 20px 18px;
+    }
+    .stack-card h4 { color: #5DD6DF; font-size: .8rem; font-weight: 700; letter-spacing: .08em; text-transform: uppercase; margin-bottom: 10px; }
+    .stack-items { display: flex; flex-wrap: wrap; gap: 8px; }
+    .stack-chip {
+      background: rgba(93,214,223,.1);
+      border: 1px solid rgba(93,214,223,.25);
+      color: #A8D5DA;
+      font-size: .78rem;
+      padding: 4px 10px;
+      border-radius: 6px;
+    }
+
+    /* ── CTA ── */
+    #contact {
+      background: linear-gradient(135deg, var(--teal2), var(--navy));
+      max-width: 100%;
+      padding: 80px 5%;
+      text-align: center;
+    }
+    .contact-inner { max-width: 600px; margin: 0 auto; }
+    #contact .section-label { color: #5DD6DF; text-align: center; display: block; margin-bottom: 14px; }
+    #contact h2 { color: var(--white); font-size: 2rem; font-weight: 800; margin-bottom: 16px; }
+    #contact p { color: #A8D5DA; margin-bottom: 36px; font-size: 1rem; line-height: 1.7; }
+    .contact-email {
+      display: inline-flex;
+      align-items: center;
+      gap: 10px;
+      background: rgba(255,255,255,.1);
+      border: 1px solid rgba(255,255,255,.25);
+      color: var(--white);
+      font-size: 1.05rem;
+      font-weight: 600;
+      padding: 14px 28px;
+      border-radius: 10px;
+      text-decoration: none;
+      transition: background .2s;
+    }
+    .contact-email:hover { background: rgba(255,255,255,.18); }
+
+    /* ── FOOTER ── */
+    footer {
+      background: #101E33;
+      color: #667085;
+      text-align: center;
+      padding: 22px 5%;
+      font-size: .82rem;
+    }
+    footer span { color: #5DD6DF; }
+
+    /* ── RESPONSIVE ── */
+    @media (max-width: 768px) {
+      .stats { grid-template-columns: repeat(2, 1fr); }
+      .about-inner { grid-template-columns: 1fr; gap: 36px; }
+      .services-grid { grid-template-columns: 1fr; }
+      .project-body { grid-template-columns: 1fr; gap: 18px; }
+      .stack-grid { grid-template-columns: 1fr 1fr; }
+      nav ul { display: none; }
+    }
+    @media (max-width: 480px) {
+      .stats { grid-template-columns: repeat(2, 1fr); }
+      .stack-grid { grid-template-columns: 1fr; }
+    }
+  </style>
+</head>
+<body>
+
+<!-- NAV -->
+<nav>
+  <div class="logo">AUTO<span>FLOW</span> · Portfolio</div>
+  <ul>
+    <li><a href="#about">About</a></li>
+    <li><a href="#services">Services</a></li>
+    <li><a href="#projects">Projects</a></li>
+    <li><a href="#stack">Stack</a></li>
+    <li><a href="#contact">Hire Me</a></li>
+  </ul>
+</nav>
+
+<!-- HERO -->
+<div class="hero">
+  <div class="hero-badge">⚡ Automation &amp; AI Workflows</div>
+  <h1>I Build Workflows That<br><span>Work While You Sleep</span></h1>
+  <p>Make · Zapier · n8n · OpenAI · LegalTech · Social Media Automation — custom-built for your business.</p>
+  <div class="hero-btns">
+    <a href="#projects" class="btn btn-primary">See My Work</a>
+    <a href="#contact" class="btn btn-outline">Hire Me</a>
+  </div>
+</div>
+
+<!-- STATS -->
+<div class="stats">
+  <div class="stat"><span class="stat-num">90%+</span><span class="stat-label">Manual time saved</span></div>
+  <div class="stat"><span class="stat-num">5+</span><span class="stat-label">Platforms per workflow</span></div>
+  <div class="stat"><span class="stat-num">3</span><span class="stat-label">Domains: AI · Legal · Social</span></div>
+  <div class="stat"><span class="stat-num">100+</span><span class="stat-label">Apps I can connect</span></div>
+</div>
+
+<!-- ABOUT -->
+<div id="about">
+  <div class="about-inner">
+    <div class="about-text">
+      <div class="section-label">About Me</div>
+      <h2 class="section-title">Automation Specialist &amp; AI Workflow Builder</h2>
+      <p>I design and build intelligent automation systems that save businesses hours of manual work every day. From AI-powered content pipelines to LegalTech automation, I connect your tools so you can focus on what matters.</p>
+      <p>My workflows are built to be reliable, scalable, and maintainable — not just quick fixes. Every project is custom-designed around your specific tools and business goals.</p>
+      <div class="about-chips">
+        <span class="chip">Make / Integromat</span>
+        <span class="chip">Zapier</span>
+        <span class="chip">n8n</span>
+        <span class="chip">OpenAI GPT-4</span>
+        <span class="chip">LegalTech</span>
+        <span class="chip">API Integrations</span>
+      </div>
+    </div>
+    <div class="about-highlights">
+      <div class="highlight-card">
+        <h4>⚡ Fast Delivery</h4>
+        <p>Most workflows delivered in 3–7 days with full testing included.</p>
+      </div>
+      <div class="highlight-card">
+        <h4>🔗 Deep Integrations</h4>
+        <p>I connect 100+ apps via native integrations and custom APIs.</p>
+      </div>
+      <div class="highlight-card">
+        <h4>🤖 AI-Powered</h4>
+        <p>OpenAI and other LLMs integrated directly into your workflows.</p>
+      </div>
+      <div class="highlight-card">
+        <h4>⚖ LegalTech Focus</h4>
+        <p>Specialist experience in legal automation and contract workflows.</p>
+      </div>
+    </div>
+  </div>
+</div>
+
+<!-- SERVICES -->
+<div id="services">
+  <div class="services-inner">
+    <div class="section-label">What I Offer</div>
+    <h2 class="section-title">Services</h2>
+    <p class="section-sub">End-to-end automation tailored to your tools and workflow.</p>
+    <div class="services-grid">
+      <div class="service-card">
+        <div class="service-icon">⚙️</div>
+        <h3>Workflow Automation</h3>
+        <p>End-to-end automation of repetitive business tasks using Make, Zapier, and n8n — from simple triggers to complex multi-step pipelines.</p>
+      </div>
+      <div class="service-card">
+        <div class="service-icon">🤖</div>
+        <h3>AI Content Systems</h3>
+        <p>AI-powered content generation, image creation, and multi-platform publishing — fully automated and consistently on-brand.</p>
+      </div>
+      <div class="service-card">
+        <div class="service-icon">⚖️</div>
+        <h3>LegalTech Automation</h3>
+        <p>Contract review, judgment monitoring, and legal research automation — saving lawyers hours of manual work daily.</p>
+      </div>
+      <div class="service-card">
+        <div class="service-icon">🔗</div>
+        <h3>App Integrations</h3>
+        <p>Seamlessly connect your CRM, email, spreadsheets, and 100+ other apps to eliminate manual data transfer and human error.</p>
+      </div>
+    </div>
+  </div>
+</div>
+
+<!-- PROJECTS -->
+<div id="projects">
+  <div class="projects-inner">
+    <div class="section-label">Featured Work</div>
+    <h2 class="section-title">Automation Projects</h2>
+    <p class="section-sub">Real workflows built to solve real problems.</p>
+
+    <!-- Project 1 -->
+    <div class="project-card">
+      <div class="project-header">
+        <div class="project-num">01</div>
+        <div class="project-title-block">
+          <h3>AI Social Media Automation</h3>
+          <p>Daily AI content → images → published across 5+ platforms, hands-free</p>
+        </div>
+      </div>
+      <div class="project-body">
+        <div class="project-col">
+          <h4>What it does</h4>
+          <p>Generates on-brand AI and LegalTech content daily, creates matching visuals using Pollinations AI, and automatically publishes posts to LinkedIn, Instagram, X (Twitter), Facebook, and Threads — all without any manual input.</p>
+        </div>
+        <div class="project-col">
+          <h4>Problem solved</h4>
+          <p>Manual content creation and scheduling consumed hours every week. This system reduces that effort by over 90%, ensuring consistent daily posting across all channels while maintaining content quality and relevance.</p>
+        </div>
+      </div>
+      <div class="project-tools">
+        <span class="tool-label">Tools:</span>
+        <span class="tool-chip">Make</span>
+        <span class="tool-chip">Zapier</span>
+        <span class="tool-chip">n8n</span>
+        <span class="tool-chip">OpenAI GPT-4</span>
+        <span class="tool-chip">Pollinations AI</span>
+        <span class="tool-chip">Google Sheets</span>
+        <span class="tool-chip">LinkedIn</span>
+        <span class="tool-chip">Instagram</span>
+        <span class="tool-chip">X (Twitter)</span>
+        <span class="tool-chip">Facebook</span>
+        <span class="tool-chip">Threads</span>
+        <span class="tool-chip">RSS</span>
+      </div>
+    </div>
+
+    <!-- Project 2 -->
+    <div class="project-card">
+      <div class="project-header">
+        <div class="project-num">02</div>
+        <div class="project-title-block">
+          <h3>AI Contract Review Automation</h3>
+          <p>Upload a contract → get a full risk &amp; clause report in minutes</p>
+        </div>
+      </div>
+      <div class="project-body">
+        <div class="project-col">
+          <h4>What it does</h4>
+          <p>Accepts uploaded contracts (PDF or Doc), automatically reviews them using GPT-4, identifies risky clauses and missing provisions, and generates a clear, structured report with specific recommendations for each issue found.</p>
+        </div>
+        <div class="project-col">
+          <h4>Problem solved</h4>
+          <p>Lawyers and businesses spend hours on first-pass contract reviews. This automation delivers that analysis in minutes, surfacing risks, gaps, and action points — freeing legal professionals for higher-value work.</p>
+        </div>
+      </div>
+      <div class="project-tools">
+        <span class="tool-label">Tools:</span>
+        <span class="tool-chip">OpenAI GPT-4</span>
+        <span class="tool-chip">Make</span>
+        <span class="tool-chip">Zapier</span>
+        <span class="tool-chip">n8n</span>
+        <span class="tool-chip">Google Docs</span>
+        <span class="tool-chip">Google Drive</span>
+        <span class="tool-chip">PDF Processing</span>
+      </div>
+    </div>
+
+    <!-- Project 3 -->
+    <div class="project-card">
+      <div class="project-header">
+        <div class="project-num">03</div>
+        <div class="project-title-block">
+          <h3>Daily Legal Judgment Digest</h3>
+          <p>Fresh case law summaries delivered to your inbox every morning at 7 AM</p>
+        </div>
+      </div>
+      <div class="project-body">
+        <div class="project-col">
+          <h4>What it does</h4>
+          <p>Each morning at 7 AM, the workflow searches legal databases for the latest judgments in a chosen practice area, uses AI to summarise the top 3–5 decisions, highlights key developments, and delivers the digest via email, WhatsApp, or Slack.</p>
+        </div>
+        <div class="project-col">
+          <h4>Problem solved</h4>
+          <p>Staying current with case law means checking multiple databases manually — a significant daily time cost. This automation delivers curated, AI-summarised updates automatically every morning, keeping lawyers informed effortlessly.</p>
+        </div>
+      </div>
+      <div class="project-tools">
+        <span class="tool-label">Tools:</span>
+        <span class="tool-chip">OpenAI GPT-4</span>
+        <span class="tool-chip">Make</span>
+        <span class="tool-chip">Zapier</span>
+        <span class="tool-chip">n8n</span>
+        <span class="tool-chip">Legal APIs</span>
+        <span class="tool-chip">Gmail</span>
+        <span class="tool-chip">Google Sheets</span>
+        <span class="tool-chip">WhatsApp</span>
+        <span class="tool-chip">Slack</span>
+      </div>
+    </div>
+  </div>
+</div>
+
+<!-- TECH STACK -->
+<div id="stack">
+  <div class="stack-inner">
+    <div class="section-label">Technologies</div>
+    <h2 class="section-title">Tech Stack</h2>
+    <p class="section-sub">The tools I use to build reliable, scalable automations.</p>
+    <div class="stack-grid">
+      <div class="stack-card">
+        <h4>⚙ Automation</h4>
+        <div class="stack-items">
+          <span class="stack-chip">Make</span>
+          <span class="stack-chip">Zapier</span>
+          <span class="stack-chip">n8n</span>
+        </div>
+      </div>
+      <div class="stack-card">
+        <h4>🤖 AI &amp; Content</h4>
+        <div class="stack-items">
+          <span class="stack-chip">OpenAI GPT-4</span>
+          <span class="stack-chip">Pollinations AI</span>
+          <span class="stack-chip">Prompt Engineering</span>
+        </div>
+      </div>
+      <div class="stack-card">
+        <h4>📊 Data &amp; Docs</h4>
+        <div class="stack-items">
+          <span class="stack-chip">Google Sheets</span>
+          <span class="stack-chip">Google Docs</span>
+          <span class="stack-chip">Google Drive</span>
+          <span class="stack-chip">PDF Tools</span>
+        </div>
+      </div>
+      <div class="stack-card">
+        <h4>📱 Social Media</h4>
+        <div class="stack-items">
+          <span class="stack-chip">LinkedIn</span>
+          <span class="stack-chip">Instagram</span>
+          <span class="stack-chip">X / Twitter</span>
+          <span class="stack-chip">Facebook</span>
+          <span class="stack-chip">Threads</span>
+        </div>
+      </div>
+      <div class="stack-card">
+        <h4>💬 Communication</h4>
+        <div class="stack-items">
+          <span class="stack-chip">Gmail</span>
+          <span class="stack-chip">WhatsApp</span>
+          <span class="stack-chip">Slack</span>
+          <span class="stack-chip">RSS</span>
+        </div>
+      </div>
+      <div class="stack-card">
+        <h4>⚖ LegalTech</h4>
+        <div class="stack-items">
+          <span class="stack-chip">Legal APIs</span>
+          <span class="stack-chip">Contract Analysis</span>
+          <span class="stack-chip">Judgment Monitoring</span>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+
+<!-- CTA -->
+<div id="contact">
+  <div class="contact-inner">
+    <span class="section-label">Get In Touch</span>
+    <h2>Ready to Automate?</h2>
+    <p>Have a repetitive process slowing you down? I'll design and build a custom workflow tailored to your tools and goals. Typical turnaround: 3–7 days.</p>
+    <a class="contact-email" href="mailto:jyoti19111998@gmail.com">
+      ✉ jyoti19111998@gmail.com
+    </a>
+  </div>
+</div>
+
+<!-- FOOTER -->
+<footer>
+  Built by <span>Jyoti</span> · Automation &amp; AI Workflow Specialist · Available for remote freelance work globally
+</footer>
+
+</body>
+</html>
