@@ -302,36 +302,35 @@
       <div class="case-header">
         <div class="case-num">01</div>
         <div class="case-hd">
-          <h3>AI Social Media Automation</h3>
-          <p>Daily AI content → images → published across 5+ platforms, hands-free</p>
+          <h3>AI-Powered Legal Content Automation System</h3>
+          <p>Custom-built end-to-end pipeline: AI content → branded video reels → auto-posted to Instagram, LinkedIn & Facebook daily</p>
         </div>
       </div>
       <div class="case-body">
         <div class="case-col">
           <h4>Problem</h4>
-          <p>Manual content creation and scheduling consumed hours every week across multiple platforms.</p>
+          <p>Consistent social media presence is essential for lawyers building a personal brand — but daily content creation, video editing, and cross-platform posting consumed hours every week with no scalable solution.</p>
         </div>
         <div class="case-col">
           <h4>Approach</h4>
-          <p>Built a pipeline that uses GPT-4 to generate content, Pollinations AI for matching images, and auto-publishes to all platforms daily.</p>
+          <p>Built a fully custom pipeline from scratch — not a no-code template. An AI content engine (Groq LLaMA 3.3 70B) generates fresh legal content daily. A custom Python/FFmpeg video engine creates branded Instagram Reels with pastel slide animations, crossfade transitions, and generated music. Cloudinary REST API handles cloud upload; Buffer's GraphQL API (reverse-engineered via live introspection) handles cross-platform publishing. A macOS launchd daemon runs everything at 9am with zero manual input.</p>
         </div>
         <div class="case-col">
           <h4>Outcome</h4>
-          <p>90%+ reduction in manual effort. Consistent daily posting across LinkedIn, Instagram, X, Facebook & Threads.</p>
-          <span class="outcome-badge">✓ 90%+ time saved</span>
+          <p>90%+ reduction in content management time. Daily branded video posts auto-published to Instagram, Facebook, and LinkedIn — while solving real engineering problems: FFmpeg filter syntax, network proxy restrictions, and undocumented GraphQL field names.</p>
+          <span class="outcome-badge">✓ 90%+ time saved · Zero manual effort</span>
         </div>
         <div class="case-col">
           <h4>Key Learning</h4>
-          <p>AI-generated content + automation beats manual effort at every scale. Consistency is the competitive advantage.</p>
+          <p>Real automation engineering means debugging API schema changes in real time, not just connecting pre-built blocks. The difference between a working system and a broken one is understanding the stack at every layer.</p>
         </div>
       </div>
       <div class="case-tools">
         <span class="tool-label">Stack:</span>
-        <span class="tool-chip">Claude (Anthropic)</span><span class="tool-chip">Make</span><span class="tool-chip">Zapier</span><span class="tool-chip">n8n</span>
-        <span class="tool-chip">OpenAI GPT-4</span><span class="tool-chip">Pollinations AI</span>
-        <span class="tool-chip">Google Sheets</span><span class="tool-chip">LinkedIn</span>
-        <span class="tool-chip">Instagram</span><span class="tool-chip">X (Twitter)</span>
-        <span class="tool-chip">Facebook</span><span class="tool-chip">Threads</span>
+        <span class="tool-chip">Python</span><span class="tool-chip">FFmpeg</span><span class="tool-chip">Groq API (LLaMA 3.3 70B)</span>
+        <span class="tool-chip">Cloudinary REST API</span><span class="tool-chip">Buffer GraphQL API</span>
+        <span class="tool-chip">PIL / Pillow</span><span class="tool-chip">macOS launchd</span>
+        <span class="tool-chip">Instagram</span><span class="tool-chip">Facebook</span><span class="tool-chip">LinkedIn</span>
       </div>
     </div>
 
