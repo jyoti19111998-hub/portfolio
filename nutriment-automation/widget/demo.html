@@ -1,0 +1,22 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Chat Box Demo</title>
+<style>body{font-family:system-ui,sans-serif;max-width:720px;margin:40px auto;padding:0 16px;background:#fff;color:#111}</style>
+</head>
+<body>
+<h1>Nutriment Properties – chat box demo</h1>
+<p>Click the 💬 button bottom-right. With no <code>endpoint</code> set, leads are only logged to the browser console.</p>
+<script>
+  window.NutrimentChatConfig = {
+    endpoint: '',            // paste the Apps Script web app URL here
+    whatsapp: '66000000000', // business WhatsApp number
+    line: '',                // e.g. https://line.me/R/ti/p/@yourid
+    color: '#0f766e'
+  };
+</script>
+<script src="nutriment-chat.js" defer></script>
+</body>
+</html>
