@@ -1,0 +1,48 @@
+Most law firms will tell their clients about the DPDP Act.
+
+Very few have checked their own office.
+
+Think about a normal day in chambers:
+→ Client sends Aadhaar and case papers on an associate's personal WhatsApp
+→ Drafts go to the typist on a pen drive
+→ A Google Drive folder is shared as "anyone with the link"
+→ An intern pastes client facts into a free AI tool
+→ 10 years of closed files sit in a store room
+
+Under the DPDP Act, 2023, a law firm is a Data Fiduciary like any other business.
+
+Many advocates assume the litigation exemption in Section 17(1)(a) covers them. It does not cover everything:
+• It applies only where processing is necessary to enforce a legal right or claim.
+• Advisory, transactional and due diligence work may fall outside it.
+• So do your website, billing and your own staff's data.
+• The security duty under Section 8(5) still applies, even to exempt data. Failing it carries the highest penalty in the Act: up to ₹250 crore.
+
+The core obligations under the DPDP Rules, 2025 apply from May 2027. That is about six months away.
+
+So I built a DPDP compliance kit made for advocates' chambers and small firms:
+
+📄 Client privacy notice and engagement-letter consent clause
+📄 Retention policy that balances erasure against limitation, tax and conflict-check records
+📄 Response letters for access and erasure requests, including one refusing an opposing party's request
+📄 72-hour breach playbook with Board and client intimation templates
+📄 Vendor agreement for IT, cloud, typists and photocopy vendors
+📄 Ten office rules for staff and interns: WhatsApp, email, devices, AI tools
+📄 Security checklist and registers workbook
+
+11 editable Word templates and an Excel workbook, with an implementation guide and a 30-day plan.
+
+Swipe through the carousel for a preview 👉
+
+If your chambers wants a copy, comment "DPDP" or send me a message.
+
+Happy to discuss: how is your office handling client data on WhatsApp?
+
+#DPDPAct #DataProtection #LawFirms #Advocates #LegalTech #Privacy #IndianLaw #Compliance
+
+---- FIRST COMMENT (post right after publishing) ----
+
+A quick self-check for any chambers:
+1. Does every email account used for client work have two-step verification?
+2. Are client files on WhatsApp only on firm devices?
+3. Do you know whom to call, and what to send the Data Protection Board, within 72 hours if a laptop is stolen?
+If any answer is "no", start there.
